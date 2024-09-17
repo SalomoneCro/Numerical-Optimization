@@ -93,6 +93,6 @@ def BroydenMethod(F: callable,
         Fe = F(xi)
         i += 1
         cond = np.linalg.norm(Fe) > tol
-        J += np.inner((yi - J @ s), s) / np.inner(s,s)
+        J += np.outer((yi - J @ s), s) / np.inner(s,s)
     
     return xi
